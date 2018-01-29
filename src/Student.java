@@ -1,37 +1,61 @@
 
-public class Student {
-	private String firstName;
-	private String lastName;
-	private int idNumber;
+import java. util. ArrayList;
+
+public class student {
 	
-	public Student(String firstName, String lastName, int idNumber) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.idNumber = idNumber;
+	private String FName;
+	private String LName;
+	private int ID;
+	private String email;
+	ArrayList<courseControllor> StudentCourses = new ArrayList<courseControllor>(); 
+	
+	public student(String F, String L, int id, String em) {
+		this.FName = F;
+		this.LName = L;
+		this.ID = id;
+		this.email = em;
 	}
 	
-	public String getFirstName() {
-		return this.firstName;
+	public String getfirstname() {
+		return this.FName;
 	}
 	
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setfirstname(String F) {
+		this.FName = F;
 	}
 	
-	public String getLastName() {
-		return this.lastName;
+	public String getlastname() {
+		return this.LName;
 	}
 	
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setlastname(String L) {
+		this.LName = L;
 	}
 	
-	public int getIdNumber() {
-		return this.idNumber;
+	public int getIDnumber() {
+		return this.ID;
 	}
 	
-	public void setIdNumber(int idNumber) {
-		this.idNumber = idNumber;
-	}	
+	public void setIDnumber(int id) {
+		this.ID = id;
+	}
+	
+	public String getEmail() {
+		return this.email;
+	}
+	
+	public void setemail(String e) {
+		this.email = e;
+	}
+	
+	public courseControllor getCourse(int courselocation) {
+		
+		return this.StudentCourses.get(courselocation);
+	}
+	
+	public void addCourse(courseControllor c) {
+		
+		this.StudentCourses.add(c);
+	}
 	
 }
