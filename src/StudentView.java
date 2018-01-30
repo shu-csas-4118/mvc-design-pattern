@@ -1,29 +1,36 @@
 
-public class StudentView {
-	private Student student;
+public class studentView {
+	private student S;
 	
-	public StudentView(Student student) {
-		this.student = student;
+	public studentView(student s) {
+		this.S = s;
 	}
 	
-	public StudentView() {
-		
+	public void printStudentDetails(student s) {
+		this.S = s;
+		printStutentDetails();
 	}
 	
-	public void printStudentDetails(Student student) {
-		this.student = student;
-		printStudentDetails();
+	public void printStutentDetails() {
+		if (this.S == null) throw new IllegalArgumentException("student"); 
+			
+		System.out.println("Student's first name: "+ this.S.getfirstname());
+		System.out.println("Student's last name: "+ this.S.getlastname());
+		System.out.println("Student's ID number: "+ this.S.getIDnumber());
+		System.out.println("Student's email: "+ this.S.getEmail());
+		System.out.println("Student's courses are:");
+		if(this.S.StudentCourses.size() == 0) {
+			System.out.println("Student is not registered to any Courses");
+			System.out.println("________________________________________");
+		}
+		else {
+			System.out.println("________________________________________");
+			for(int i = 0; i < this.S.StudentCourses.size(); i++) {
+				System.out.println("Course "+ (i + 1) +": ");
+				this.S.getCourse(i).printStudentDetails();
+				System.out.println("________________________________________");
+			}
+		}
 	}
-	
-	public void setStudentDetails(Student student) {
-	
-	}
-	
-	public void printStudentDetails() {
-		if (this.student == null) throw new IllegalArgumentException("student");		
 
-		System.out.println("Student's first name is " + this.student.getFirstName());
-		System.out.println("Student's last name is " + this.student.getLastName());
-		System.out.println("Student's id number is " + this.student.getIdNumber());
-	}
 }
